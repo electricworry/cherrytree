@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13.2)
+cmake_minimum_required(VERSION 3.10.2) # core18 provides older cmake.
 
 project(cherrytree)
 set(CT_VERSION "0.99.0")
@@ -89,7 +89,7 @@ endif()
 include(FindPkgConfig)
 pkg_check_modules(GTKMM gtkmm-3.0 REQUIRED)
 pkg_check_modules(GTKSVMM gtksourceviewmm-3.0 REQUIRED)
-pkg_check_modules(GLIBMM glibmm-2.4>=2.64 REQUIRED)
+pkg_check_modules(GLIBMM glibmm-2.4>=2.62 REQUIRED) # gnome-3-34 provides glibmm 2.62
 pkg_check_modules(PANGOMM pangomm-1.4 REQUIRED)
 pkg_check_modules(GSPELL gspell-1 REQUIRED)
 pkg_check_modules(LIBXML libxml++-2.6 REQUIRED)
@@ -141,9 +141,6 @@ if(USE_NLS)
   )
 endif()
 
-
-# install cherrytree
-install(TARGETS cherrytree RUNTIME DESTINATION bin)
 
 # set icon on macos
 if(APPLE)
